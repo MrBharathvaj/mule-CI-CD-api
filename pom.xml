@@ -41,12 +41,42 @@
 						<muleVersion>4.6.0</muleVersion>
 						<username>Bharathvaj_Randy</username>
 						<password>Randy@12</password>
-						<applicationName>mulecicd-demo</applicationName>
+						<applicationName>mulecicd-demo-1</applicationName>
 						<environment>Sandbox</environment>
 						<region>us-east-1</region>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
 					</cloudHubDeployment>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>4.0.0</version>
+				<extensions>true</extensions>
+				<configuration>
+				<cloudhub2Deployment>
+					<uri>https://anypoint.mulesoft.com</uri>
+					<provider>MC</provider>
+					<environment>Sandbox</environment>
+					<target>Cloudhub-US-East-1</target>
+					<muleVersion>4.6.0</muleVersion>
+					<username>Bharathvaj_Randy</username>
+					<password>Randy@12</password>
+					<applicationName>mulecicd-demo-2</applicationName>
+					<replicas>1</replicas>
+					<vCores>1</vCores>
+				   <!-- <deploymentSettings>
+						<http>
+							<inbound>
+								<publicUrl>${publicURL}</publicUrl>
+								<forwardSslSession>true</forwardSslSession>
+								<lastMileSecurity>true</lastMileSecurity>
+							</inbound>
+						</http>
+					</deploymentSettings> -->
+					<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
+				</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
