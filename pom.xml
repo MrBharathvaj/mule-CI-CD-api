@@ -53,6 +53,7 @@
 						<properties>
 							<env>qa</env>
 						</properties>
+						<skipDeploymentVerification>true</skipDeploymentVerification>
 					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
