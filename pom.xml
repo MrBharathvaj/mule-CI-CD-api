@@ -29,6 +29,9 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<classifier>mule-application</classifier>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
@@ -36,18 +39,18 @@
 				<version>4.0.0</version>
 				<extensions>true</extensions>
 				<configuration>
-				<cloudhub2Deployment>
-					<uri>https://anypoint.mulesoft.com</uri>
-					<provider>MC</provider>
-					<environment>Sandbox</environment>
-					<target>Cloudhub-US-East-2</target>
-					<muleVersion>4.6.0</muleVersion>
-					<username>Bharathvaj_Randy</username>
-					<password>Randy@12</password>
-					<applicationName>mule-cicd-api</applicationName>
-					<replicas>1</replicas>
-					<vCores>0.1</vCores>
-				</cloudhub2Deployment>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<environment>Sandbox</environment>
+						<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.6.0</muleVersion>
+						<username>Bharathvaj_Randy</username>
+						<password>Randy@12</password>
+						<applicationName>mule-cicd-api</applicationName>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -70,10 +73,10 @@
 
 	<distributionManagement>
 		<repository>
-		<id>Repository</id>
-		<name>Corporate Repository</name>
-		<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/951f9f81-63f9-4468-90bd-e8f9bf132094/maven</url>
-		<layout>default</layout>
+			<id>Repository</id>
+			<name>Corporate Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/951f9f81-63f9-4468-90bd-e8f9bf132094/maven</url>
+			<layout>default</layout>
 		</repository>
 	</distributionManagement>
 
