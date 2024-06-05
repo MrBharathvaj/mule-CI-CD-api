@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>951f9f81-63f9-4468-90bd-e8f9bf132094</groupId>
-	<artifactId>newdemo</artifactId>
+	<artifactId>mule-cicd-api-v1</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
@@ -44,7 +44,7 @@
 					<muleVersion>4.6.0</muleVersion>
 					<username>Bharathvaj_Randy</username>
 					<password>Randy@12</password>
-					<applicationName>mulecicd-demo</applicationName>
+					<applicationName>mule-cicd-api</applicationName>
 					<replicas>1</replicas>
 					<vCores>1</vCores>
 				</cloudhub2Deployment>
