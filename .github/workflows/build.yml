@@ -24,5 +24,4 @@ jobs:
       
     - name: Deploy to Cloudhub
       run: mvn deploy -DmuleDeploy --settings settings.xml 
-      env:
-        en: ${{ secrets.EN }}
+
