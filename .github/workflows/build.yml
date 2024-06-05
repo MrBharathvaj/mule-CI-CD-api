@@ -23,4 +23,4 @@ jobs:
       run: mvn deploy --settings settings.xml
       
     - name: Deploy to Cloudhub
-      run: mvn deploy -DmuleDeploy --settings settings.xml
+      run: mvn deploy -DmuleDeploy --settings settings.xml -Denv=dev
