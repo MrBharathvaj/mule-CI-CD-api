@@ -19,13 +19,14 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
 
-      env:
-        en: qa
+
         
     - name: Deploy to Exchange
       run: mvn deploy --settings settings.xml
       
     - name: Deploy to Cloudhub 
+      env:
+        en: qa
       run: mvn deploy -DmuleDeploy --settings settings.xml 
 
 
