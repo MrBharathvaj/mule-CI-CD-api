@@ -20,7 +20,7 @@ jobs:
         java-version: '8'
 
       env:
-        en: "qa"
+        en: qa
         
     - name: Deploy to Exchange
       run: mvn deploy --settings settings.xml
