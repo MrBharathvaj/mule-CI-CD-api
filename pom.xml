@@ -33,7 +33,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>4.0.0</version>
+				<version>3.7.1</version>
 				<extensions>true</extensions>
 				<configuration>
 				<cloudhub2Deployment>
@@ -44,19 +44,9 @@
 					<muleVersion>4.6.0</muleVersion>
 					<username>Bharathvaj_Randy</username>
 					<password>Randy@12</password>
-					<applicationName>mulecicd-demo-2</applicationName>
+					<applicationName>mulecicd-demo</applicationName>
 					<replicas>1</replicas>
 					<vCores>1</vCores>
-				   <!-- <deploymentSettings>
-						<http>
-							<inbound>
-								<publicUrl>${publicURL}</publicUrl>
-								<forwardSslSession>true</forwardSslSession>
-								<lastMileSecurity>true</lastMileSecurity>
-							</inbound>
-						</http>
-					</deploymentSettings> -->
-			   <!-- <generateDefaultPublicUrl>true</generateDefaultPublicUrl> -->
 				</cloudhub2Deployment>
 				</configuration>
 			</plugin>
