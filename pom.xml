@@ -75,7 +75,7 @@
 							</inbound>
 						</http>
 					</deploymentSettings> -->
-					<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
+			   <!-- <generateDefaultPublicUrl>true</generateDefaultPublicUrl> -->
 				</cloudhub2Deployment>
 				</configuration>
 			</plugin>
