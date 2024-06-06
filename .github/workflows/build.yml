@@ -26,7 +26,7 @@ jobs:
       
     - name: Deploy to Cloudhub 
       env:
-        qa:"$EN" 
+           qa: "${EN}"
       run: mvn deploy -DmuleDeploy --settings settings.xml 
 
 
