@@ -53,6 +53,9 @@
 						<properties>
 							<en>${en}</en>
 						</properties>
+						<secureProperties>
+							<key>${secure_key}</key>
+						</secureProperties>
 						<skipDeploymentVerification>true</skipDeploymentVerification>
 					</cloudhub2Deployment>
 				</configuration>
