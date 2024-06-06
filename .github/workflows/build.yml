@@ -20,7 +20,7 @@ jobs:
         java-version: '8'
 
     - name: Display EN variable
-      run: echo "EN value is" ${environ.EN}
+      run: echo "EN value is" ${{EN}}
 
         
     - name: Deploy to Exchange
