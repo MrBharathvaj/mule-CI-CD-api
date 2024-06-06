@@ -19,17 +19,17 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
            
-    - name: Set EN variable to "dev"
-      run: echo "::set name=EN::dev"
+      env:
+       EN: dev
 
     - name: Display EN variable
-      run: echo "EN value is %EN%"
+      run: echo "EN value is $EN"
 
         
     - name: Deploy to Exchange
       run: mvn deploy --settings settings.xml
       
     - name: Deploy to Cloudhub 
-      run: mvn deploy -DmuleDeploy -Den=%EN% --settings settings.xml 
+      run: mvn deploy -DmuleDeploy -Den=$EN --settings settings.xml 
 
 
