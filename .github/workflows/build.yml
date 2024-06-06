@@ -21,12 +21,14 @@ jobs:
 
     - name: Display EN variable
       run: echo "EN value is" "${{vars.EN}}"
+    - name: Display SECURE_KEY
+      run: echo "SECURE_KEY is" "${{secrets.SECURE_KEY}}"
 
         
     - name: Deploy to Exchange
       run: mvn deploy --settings settings.xml
       
     - name: Deploy to Cloudhub 
-      run: mvn deploy -DmuleDeploy -Den="${{vars.EN}}" --settings settings.xml 
+      run: mvn deploy -DmuleDeploy -Den="${{vars.EN}}" -Dsecure_key="${{secrets.SECURE_KEY}}" --settings settings.xml 
 
 
