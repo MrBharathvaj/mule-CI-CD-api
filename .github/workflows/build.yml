@@ -25,7 +25,7 @@ jobs:
       run: |
           $pattern = '<en>(.+?)</en>'
           $en = Select-String -Path pom.xml -Pattern $pattern | ForEach-Object { $_.Matches.Groups[1].Value }
-          echo "::set name=EN::dev"
+          echo "::set EN::dev"
 
     - name: Display EN variable
       run: echo "EN value is $EN"
