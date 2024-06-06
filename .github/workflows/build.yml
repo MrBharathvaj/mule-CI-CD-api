@@ -27,6 +27,6 @@ jobs:
       run: mvn deploy --settings settings.xml
       
     - name: Deploy to Cloudhub 
-      run: mvn deploy -DmuleDeploy -Den=$EN --settings settings.xml 
+      run: mvn deploy -DmuleDeploy -Den="${{EN}}" --settings settings.xml 
 
 
