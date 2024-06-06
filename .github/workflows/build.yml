@@ -18,17 +18,9 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '8'
-           
-    - name: Extract EN variable from pom.xml
-      id: extract_en
-      shell: powershell
-      run: |
-          $pattern = '<en>(.+?)</en>'
-          $en = Select-String -Path pom.xml -Pattern $pattern | ForEach-Object { $_.Matches.Groups[1].Value }
-          echo "::set EN::dev"
 
     - name: Display EN variable
-      run: echo "EN value is ${EN}"
+      run: echo "EN value is ${environ.EN}"
 
         
     - name: Deploy to Exchange
