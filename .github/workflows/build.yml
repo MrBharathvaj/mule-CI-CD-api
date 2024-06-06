@@ -20,7 +20,7 @@ jobs:
         java-version: '8'
            
     - name: Set EN variable to "dev"
-      run: echo "::set-env name=EN::dev"
+      run: echo "::set name=EN::dev"
 
     - name: Display EN variable
       run: echo "EN value is %EN%"
