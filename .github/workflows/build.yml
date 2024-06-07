@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
       # - name: Built and Deploy with Maven
         env:
-         CONNECTED_APP_CLIENT_ID: ${{ secrets.CONNECTED }}
+         CONNECTED_APP_CLIENT_ID: ${{ secrets.CONNECTED_APP_CLIENT_ID }}
 
       - name: Check Values
         run: echo "CONNECTED_APP_ID is :" "${env.CONNECTED_APP_CLIENT_ID}"
