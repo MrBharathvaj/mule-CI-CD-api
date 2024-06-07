@@ -44,9 +44,11 @@
 						<provider>MC</provider>
 						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
-						<muleVersion>4.6.0</muleVersion>
-						<username>Bharathvaj_Randy</username>
-						<password>Randy@12</password>
+						<muleVersion>4.7.0</muleVersion>
+						<businessGroupId>${env.ORG_ID}</businessGroupId>
+						<connectedAppClientId>${env.CONNECTED_APP_CLIENT_ID}</connectedAppClientId>
+						<connectedAppClientSecret>${env.CONNECTED_APP_CLIENT_SECRET}</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<applicationName>mule-cicd-api</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
@@ -80,21 +82,14 @@
 
 	<distributionManagement>
 		<repository>
-			<id>Repository</id>
+			<id>anypoint-exchange-v3</id>
 			<name>Corporate Repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/951f9f81-63f9-4468-90bd-e8f9bf132094/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${env.ORG_ID}/maven</url>
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
-		<repository>
-			<id>Repository</id>
-			<name>Exchange2 Repository</name>
-			<url>
-			https://maven.anypoint.mulesoft.com/api/v3/organizations/951f9f81-63f9-4468-90bd-e8f9bf132094/maven</url>
-			<layout>default</layout>
-		</repository>
 		<repository>
 			<id>anypoint-exchange-v3</id>
 			<name>Anypoint Exchange</name>
