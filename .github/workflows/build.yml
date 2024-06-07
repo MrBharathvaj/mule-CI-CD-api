@@ -19,7 +19,7 @@ jobs:
          org_id: ${{secrets.ORG_ID}}
 
       - name: Check Values
-        run: echo "CONNECTED_APP_ID is :" "${env.org_id}"
+        run: echo "CONNECTED_APP_ID is :" "${{secrets.ORG_ID}}"
 
           
       # - name: Deploy to Exchange
