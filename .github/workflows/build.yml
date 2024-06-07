@@ -5,27 +5,25 @@ on:
       - main
 
 jobs:
-  builtAndDeploy:
-  
+  deploy:
     runs-on: windows-latest
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      # - name: Built and Deploy with Maven
-        env:
-         CONNECTED_APP_CLIENT_ID: ${{ secrets.CONNECTED_APP_CLIENT_ID }}
-         CONNECTED_APP_CLIENT_SECRET: ${{ secrets.CONNECTED_APP_CLIENT_SECRET }}
-         org_id: ${{secrets.ORG_ID}}
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with: 
+        distribution: 'us-east-1'
 
-      - name: Check Values
-        run: cat .maven/settings.xml
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '8'
 
           
-      # - name: Deploy to Exchange
-      #   run: mvn deploy --settings settings.xml
+    - name: Deploy to Exchange
+      run: mvn deploy --settings .maven/settings.xml
         
-      # - name: Deploy to Cloudhub 
-      #   run: mvn deploy -DmuleDeploy -Den="${{vars.EN}}" -Dsecure_key="${{secrets.SECURE_KEY}}" --settings settings.xml 
+    - name: Deploy to Cloudhub 
+      run: mvn deploy -DmuleDeploy -Den="${{vars.EN}}" -Dsecure_key="${{secrets.SECURE_KEY}}" -Dorg_id="${{secrets.ORG_ID}}" -Dconnected_app_client_id="${{secrets.CONNECTEED_APP_CLIENT_ID}}" -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
 
 
