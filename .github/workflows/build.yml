@@ -5,30 +5,25 @@ on:
       - main
 
 jobs:
-  deploy:
+  builtAndDeploy:
+  
     runs-on: windows-latest
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with: 
-        distribution: 'us-east-1'
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Built and Deploy with Maven
+  
+        env:
+         CONNECTED_APP_CLIENT_ID: ${{ secrets.CONNECTED }}
 
-    - name: Set up Java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '8'
-
-    - name: Display EN variable
-      run: echo "EN value is" "${{vars.EN}}"
-    - name: Display SECURE_KEY
-      run: echo "SECURE_KEY is" "${{secrets.SECURE_KEY}}"
-
+      - name: Check Values
+        run: echo "CONNECTED_APP_ID is :" env.CONNECTED_APP_ID
+          
+      # - name: Deploy to Exchange
+      #   run: mvn deploy --settings settings.xml
         
-    - name: Deploy to Exchange
-      run: mvn deploy --settings settings.xml
-      
-    - name: Deploy to Cloudhub 
-      run: mvn deploy -DmuleDeploy -Den="${{vars.EN}}" -Dsecure_key="${{secrets.SECURE_KEY}}" --settings settings.xml 
+      # - name: Deploy to Cloudhub 
+      #   run: mvn deploy -DmuleDeploy -Den="${{vars.EN}}" -Dsecure_key="${{secrets.SECURE_KEY}}" --settings settings.xml 
 
 
