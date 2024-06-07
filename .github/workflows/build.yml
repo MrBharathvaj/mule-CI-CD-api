@@ -15,9 +15,12 @@ jobs:
       # - name: Built and Deploy with Maven
         env:
          CONNECTED_APP_CLIENT_ID: ${{ secrets.CONNECTED_APP_CLIENT_ID }}
+         CONNECTED_APP_CLIENT_SECRET: ${{ secrets.CONNECTED_APP_CLIENT_SECRET }}
+         org_id: ${{secrets.ORG_ID}}
 
       - name: Check Values
-        run: echo "CONNECTED_APP_ID is :" ${env.CONNECTED_APP_CLIENT_ID}
+        run: echo "CONNECTED_APP_ID is :" "${env.org_id}"
+
           
       # - name: Deploy to Exchange
       #   run: mvn deploy --settings settings.xml
