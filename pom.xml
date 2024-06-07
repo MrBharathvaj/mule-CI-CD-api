@@ -84,7 +84,7 @@
 		<repository>
 			<id>anypoint-exchange-v3</id>
 			<name>Corporate Repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${env.ORG_ID}/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${org_id}/maven</url>
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
