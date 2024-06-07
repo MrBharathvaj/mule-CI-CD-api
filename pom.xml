@@ -45,9 +45,9 @@
 						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
 						<muleVersion>4.7.0</muleVersion>
-						<businessGroupId>${env.ORG_ID}</businessGroupId>
-						<connectedAppClientId>${env.CONNECTED_APP_CLIENT_ID}</connectedAppClientId>
-						<connectedAppClientSecret>${env.CONNECTED_APP_CLIENT_SECRET}</connectedAppClientSecret>
+						<businessGroupId>${org_id}</businessGroupId>
+						<connectedAppClientId>${connected_app_client_id}</connectedAppClientId>
+						<connectedAppClientSecret>${connected_app_secret}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<applicationName>mule-cicd-api</applicationName>
 						<replicas>1</replicas>
