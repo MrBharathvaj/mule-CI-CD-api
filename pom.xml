@@ -72,6 +72,7 @@
 			<version>1.8.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
