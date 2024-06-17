@@ -22,18 +22,20 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
 
-    - name: Determine Environment Name
-      id: extract_env_name
+    - name: Deploy to Cloudhub
       run: |
-        if ($env:GITHUB_REF -eq "refs/heads/main") {
-        Write-Host "::set-env name=ENVIRONMENT_NAME::main"
-        }
-        elseif ($env:GITHUB_REF -eq "refs/heads/dev") {
-          Write-Host "::set-env name=ENVIRONMENT_NAME::dev"
-        }
-        elseif ($env:GITHUB_REF -eq "refs/heads/qa") {
-          Write-Host "::set-env name=ENVIRONMENT_NAME::qa"
-        }
+        if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
+        ENVIRONMENT="dev"
+        elif [[ ${{ github.ref }} == 'refs/heads/qa' ]]; then
+        ENVIRONMENT="qa"
+        elif [[ ${{ github.ref }} == 'refs/heads/uat' ]]; then
+          ENVIRONMENT="uat"
+        else
+          echo "Unsupported branch for deployment"
+          exit 1
+        fi
+
+        echo "Deploying to environment: $ENVIRONMENT"
       
     # - name: Deploy to Exchange
     #   run: mvn deploy --settings .maven/settings.xml
