@@ -22,31 +22,44 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
 
-    - name: Deploy to Cloudhub
-      run: |
-        if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
-        ENVIRONMENT="dev"
-        elif [[ ${{ github.ref }} == 'refs/heads/qa' ]]; then
-        ENVIRONMENT="qa"
-        elif [[ ${{ github.ref }} == 'refs/heads/uat' ]]; then
-          ENVIRONMENT="uat"
-        else
-          echo "Unsupported branch for deployment"
-          exit 1
-        fi
-
-        echo "Deploying to environment: $ENVIRONMENT"
-      
-    # - name: Deploy to Exchange
-    #   run: mvn deploy --settings .maven/settings.xml
+    - name: Deploy to Exchange dev
+      if: github.ref == 'refs/heads/dev'
+      run: mvn deploy --settings .maven/settings.xml
         
-    # - name: Deploy to Cloudhub 
-    #   run: mvn deploy -DmuleDeploy 
-    #       -Den="${{vars.EN}}" 
-    #       -Denvironment="${{vars.EN}}" 
-    #       -Dsecure_key="${{secrets.SECURE_KEY}}" 
-    #       -Dorg_id="${{secrets.ORG_ID}}" 
-    #       -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
-    #       -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
-
-
+    - name: Deploy to Cloudhub dev
+      if: github.ref == 'refs/heads/dev'
+      run: mvn deploy -DmuleDeploy 
+          -Den="${{vars.ENV}}" 
+          -Denvironment="${{vars.ENVIRONMENT_DEV}}" 
+          -Dsecure_key="${{secrets.SECURE_KEY}}" 
+          -Dorg_id="${{secrets.ORG_ID}}" 
+          -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
+          -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml
+          
+    - name: Deploy to Exchange uat
+      if: github.ref == 'refs/heads/uat'
+      run: mvn deploy --settings .maven/settings.xml
+        
+    - name: Deploy to Cloudhub uat
+      if: github.ref == 'refs/heads/uat'
+      run: mvn deploy -DmuleDeploy 
+          -Den="${{vars.ENV}}" 
+          -Denvironment="${{vars.ENVIRONMENT_UAT}}" 
+          -Dsecure_key="${{secrets.SECURE_KEY}}" 
+          -Dorg_id="${{secrets.ORG_ID}}" 
+          -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
+          -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
+      
+    - name: Deploy to Exchange Sandbox
+      if: github.ref == 'refs/heads/main'
+      run: mvn deploy --settings .maven/settings.xml
+        
+    - name: Deploy to Cloudhub Sandbox
+      if: github.ref == 'refs/heads/main'
+      run: mvn deploy -DmuleDeploy 
+          -Den="${{vars.ENV}}" 
+          -Denvironment="${{vars.ENVIRONMENT_SANDBOX}}" 
+          -Dsecure_key="${{secrets.SECURE_KEY}}" 
+          -Dorg_id="${{secrets.ORG_ID}}" 
+          -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
+          -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
