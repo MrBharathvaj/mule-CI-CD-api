@@ -33,6 +33,7 @@ jobs:
           -Denvironment="${{vars.ENVIRONMENT_DEV}}" 
           -Dsecure_key="${{secrets.SECURE_KEY}}" 
           -Dorg_id="${{secrets.ORG_ID}}" 
+          -Dapp_name="${{vars.APP_NAME_DEV}}"
           -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
           -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml
           
@@ -46,7 +47,8 @@ jobs:
           -Den="${{vars.ENV}}" 
           -Denvironment="${{vars.ENVIRONMENT_UAT}}" 
           -Dsecure_key="${{secrets.SECURE_KEY}}" 
-          -Dorg_id="${{secrets.ORG_ID}}" 
+          -Dorg_id="${{secrets.ORG_ID}}"
+          -Dapp_name="${{vars.APP_NAME_UAT}}"
           -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
           -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
       
@@ -61,5 +63,6 @@ jobs:
           -Denvironment="${{vars.ENVIRONMENT_SANDBOX}}" 
           -Dsecure_key="${{secrets.SECURE_KEY}}" 
           -Dorg_id="${{secrets.ORG_ID}}" 
+          -Dapp_name="${{vars.APP_NAME_SANDBOX}}"
           -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
           -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
