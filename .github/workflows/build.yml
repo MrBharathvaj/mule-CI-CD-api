@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+      - dev
+      - qa
+      - uat
 
 jobs:
   deploy:
@@ -18,20 +21,17 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '8'
-        
+
     - name: Determine Environment Name
       id: extract_env_name
-      run: echo "::set-output name=environment::${GITHUB_REF#refs/heads/}"  # Extracts branch name without 'refs/heads/'
-      
-    - name: Print Environment Dynamically
-      run: echo "-Denvironment=" "${{ steps.extract_env_name.outputs.environment }}"
-
-    - name: Set Env Name
-      id: extract_env
-      run: echo "::set-output name=environment::${GITHUB_REF#refs/heads/}"  # Extracts branch name without 'refs/heads/'
-      
-    - name: Print
-      run: echo "-Denvironment=${{ steps.extract_env_name.outputs.environment }}"
+      run: |
+        if [[ $GITHUB_REF == refs/heads/main ]]; then
+          echo "::set-env name=ENVIRONMENT_NAME::main"
+        elif [[ $GITHUB_REF == refs/heads/dev ]]; then
+          echo "::set-env name=ENVIRONMENT_NAME::dev"
+        elif [[ $GITHUB_REF == refs/heads/qa ]]; then
+          echo "::set-env name=ENVIRONMENT_NAME::qa"
+        fi
       
     # - name: Deploy to Exchange
     #   run: mvn deploy --settings .maven/settings.xml
