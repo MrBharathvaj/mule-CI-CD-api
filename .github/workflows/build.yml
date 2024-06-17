@@ -25,6 +25,14 @@ jobs:
       
     - name: Print Environment Dynamically
       run: echo "-Denvironment=" "${{ steps.extract_env_name.outputs.environment }}"
+
+    - name: Determine Environment Name
+      id: extract_env
+      run: echo "::set-output name=environment::${GITHUB_REF#refs/heads/}"  # Extracts branch name without 'refs/heads/'
+      
+    - name: Print Environment Dynamically
+      run: |
+        echo "-Denvironment=${{ steps.extract_env.outputs.environment }}"
     # - name: Deploy to Exchange
     #   run: mvn deploy --settings .maven/settings.xml
         
