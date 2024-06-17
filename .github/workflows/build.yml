@@ -25,13 +25,15 @@ jobs:
     - name: Determine Environment Name
       id: extract_env_name
       run: |
-        if [[ $GITHUB_REF == refs/heads/main ]]; then
-          echo "::set-env name=ENVIRONMENT_NAME::main"
-        elif [[ $GITHUB_REF == refs/heads/dev ]]; then
-          echo "::set-env name=ENVIRONMENT_NAME::dev"
-        elif [[ $GITHUB_REF == refs/heads/qa ]]; then
-          echo "::set-env name=ENVIRONMENT_NAME::qa"
-        fi
+        if ($env:GITHUB_REF -eq "refs/heads/main") {
+        Write-Host "::set-env name=ENVIRONMENT_NAME::main"
+        }
+        elseif ($env:GITHUB_REF -eq "refs/heads/dev") {
+          Write-Host "::set-env name=ENVIRONMENT_NAME::dev"
+        }
+        elseif ($env:GITHUB_REF -eq "refs/heads/qa") {
+          Write-Host "::set-env name=ENVIRONMENT_NAME::qa"
+        }
       
     # - name: Deploy to Exchange
     #   run: mvn deploy --settings .maven/settings.xml
