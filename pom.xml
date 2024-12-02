@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>d72355a3-2bb4-4733-99c1-2a0d3078879c</groupId>
-	<artifactId>mule-cicd-api-v2</artifactId>
+	<artifactId>mule-cicd-api</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
