@@ -66,3 +66,4 @@ jobs:
           -Dapp_name="${{vars.APP_NAME_SANDBOX}}"
           -Dconnected_app_client_id="${{secrets.CONNECTED_APP_CLIENT_ID}}" 
           -Dconnected_app_secret="${{secrets.CONNECTED_APP_CLIENT_SECRET}}" --settings .maven/settings.xml 
+          
